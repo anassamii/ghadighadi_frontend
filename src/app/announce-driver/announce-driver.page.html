@@ -1,0 +1,225 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Add announcement</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div>
+    <ion-slides
+      [options]="slidesOpts"
+      (ionSlideDidChange)="onSlidesDidChange()"
+      (ionSlideWillChange)="onSlidesChanged()"
+    >
+      <ng-container *ngFor="let slide of slides">
+        <ion-slide>
+          <div class="full-width ion-text-start">
+            <form
+              [formGroup]="shippingForm"
+              #shippingFormRef="ngForm"
+              novalidate
+              *ngIf="slide === 'Shipping'"
+            >
+              <ion-row>
+                <ion-col>
+                  <ion-item lines="none">
+                    <ion-label position="stacked">First name *</ion-label>
+                    <ion-input
+                      type="text"
+                      formControlName="first_name"
+                    ></ion-input>
+                  </ion-item>
+                  <ion-text color="danger">
+                    <span
+                      class="text-tiny"
+                      [style.visibility]="
+                        shippingFirstName?.errors?.required &&
+                        shippingFormRef.submitted
+                          ? ''
+                          : 'hidden'
+                      "
+                    >
+                      Field required
+                    </span>
+                  </ion-text>
+                </ion-col>
+                <ion-col>
+                  <ion-item lines="none">
+                    <ion-label position="stacked">Last name *</ion-label>
+                    <ion-input
+                      type="text"
+                      formControlName="last_name"
+                    ></ion-input>
+                  </ion-item>
+                  <ion-text color="danger">
+                    <span
+                      class="text-tiny"
+                      [style.visibility]="
+                        shippingLastName?.errors?.required &&
+                        shippingFormRef.submitted
+                          ? ''
+                          : 'hidden'
+                      "
+                    >
+                      Field required
+                    </span>
+                  </ion-text>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col>
+                  <ion-item lines="none">
+                    <ion-label position="stacked">Address *</ion-label>
+                    <ion-input
+                      type="text"
+                      formControlName="address"
+                      placeholder="Hay el osra, Ain chok, Casablanca."
+                    ></ion-input>
+                  </ion-item>
+                  <ion-text color="danger">
+                    <span
+                      class="text-tiny"
+                      [style.visibility]="
+                        shippingAddress?.errors?.required &&
+                        shippingFormRef.submitted
+                          ? ''
+                          : 'hidden'
+                      "
+                    >
+                      Field required
+                    </span>
+                  </ion-text>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col>
+                  <ion-item lines="none">
+                    <ion-label position="stacked">Contact phone *</ion-label>
+                    <ion-input
+                      type="text"
+                      formControlName="contact_phone"
+                      placeholder="XX XX XX XX XX"
+                    ></ion-input>
+                  </ion-item>
+                  <ion-text color="danger">
+                    <span
+                      class="text-tiny"
+                      [style.visibility]="
+                        shippingContactPhone?.errors?.required &&
+                        shippingFormRef.submitted
+                          ? ''
+                          : 'hidden'
+                      "
+                    >
+                      Field required
+                    </span>
+                  </ion-text>
+                </ion-col>
+                <ion-col>
+                  <ion-item class="item-select" lines="none">
+                    <ion-label position="stacked">vehicule</ion-label>
+                    <select formControlName="vehicule_type">
+                      <option [value]="null" disabled selected>
+                        Select type
+                      </option>
+                      <option *ngFor="let type of vehiculeType" [value]="type">
+                        {{ type }}
+                      </option>
+                    </select>
+                  </ion-item>
+                  <ion-text color="danger">
+                    <span
+                      class="text-tiny"
+                      [style.visibility]="shippingVehiculeType?.errors?.required && shippingFormRef?.submitted ? '' : 'hidden'"
+                    >
+                      Field required
+                    </span>
+                  </ion-text>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col>
+                  <ion-item lines="none">
+                    <ion-label position="stacked">Notes (Optional)</ion-label>
+                    <ion-textarea
+                      rows="3"
+                      type="textArea"
+                      formControlName="notes"
+                    ></ion-textarea>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+
+              <div class="flex align-items-center full-width ion-margin-top">
+                <div class="ion-margin-end">
+                  <h5 class="text-medium bold">Upload your vehicule's image</h5>
+                  <ion-button
+                    strong
+                    shape="round"
+                    color="medium"
+                    size="small"
+                    (click)="presentActionSheet()"
+                  >
+                    Select
+                  </ion-button>
+                  <ion-textarea
+                    rows="3"
+                    hidden
+                    required
+                    formControlName="image"
+                    [(ngModel)]="image"
+                  ></ion-textarea>
+                  <ion-text color="danger">
+                    <span
+                      class="text-tiny"
+                      [style.visibility]="shippingImage?.errors?.required && shippingFormRef.submitted ? '' : 'hidden'"
+                    >
+                      Field required
+                    </span>
+                  </ion-text>
+                </div>
+                <div>
+                  <img class="img-thumb" [src]="imagePath" *ngIf="imagePath" />
+                </div>
+              </div>
+            </form>
+          </div>
+        </ion-slide>
+      </ng-container>
+    </ion-slides>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div
+      class="full-width flex align-items-center justify-content-space-between ion-padding-horizontal"
+    >
+      <ion-button
+        style="width: 120px"
+        strong
+        shape="round"
+        color="dark"
+        [routerLink]="['/announce-client']"
+        (click)="onBackButtonTouched()"
+      >
+        <span>Back</span>
+        <ion-icon slot="start" name="chevron-back"></ion-icon>
+      </ion-button>
+      <ion-button
+        style="width: 120px"
+        strong
+        shape="round"
+        color="success"
+        [style.visibility]="isEnd ? 'hidden' : ''"
+        (click)="onNextButtonTouched()"
+        [disabled]="shippingForm.invalid"
+      >
+        <span>Publish</span>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
