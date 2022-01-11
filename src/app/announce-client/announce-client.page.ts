@@ -184,10 +184,9 @@ export class AnnounceClientPage implements OnInit {
 
       const response = await fetch(image.webPath);
       const blob = await response.blob();
-
       const base64 = (await this.convertBlobToBase64(blob)) as string;
       this.image = base64;
-      //console.log(this.myimage);
+      //console.log(this.image);
       // Send encoded string to server...
     } catch (error) {
       console.warn(error);

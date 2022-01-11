@@ -27,6 +27,8 @@
                     <ion-input
                       type="text"
                       formControlName="first_name"
+                      minlength="2"
+                      maxlength="20"
                     ></ion-input>
                   </ion-item>
                   <ion-text color="danger">
@@ -49,6 +51,8 @@
                     <ion-input
                       type="text"
                       formControlName="last_name"
+                      minlength="2"
+                      maxlength="20"
                     ></ion-input>
                   </ion-item>
                   <ion-text color="danger">
@@ -75,6 +79,8 @@
                       type="text"
                       formControlName="address"
                       placeholder="Hay el osra, Ain chok, Casablanca."
+                      minlength="5"
+                      maxlength="50"
                     ></ion-input>
                   </ion-item>
                   <ion-text color="danger">
@@ -100,7 +106,9 @@
                     <ion-input
                       type="text"
                       formControlName="contact_phone"
-                      placeholder="XX XX XX XX XX"
+                      placeholder="0611223344"
+                      minlength="10"
+                      maxlength="10"
                     ></ion-input>
                   </ion-item>
                   <ion-text color="danger">
@@ -155,7 +163,9 @@
 
               <div class="flex align-items-center full-width ion-margin-top">
                 <div class="ion-margin-end">
-                  <h5 class="text-medium bold">Upload your vehicule's image</h5>
+                  <h5 class="text-medium bold">
+                    Upload your vehicule's image *
+                  </h5>
                   <ion-button
                     strong
                     shape="round"

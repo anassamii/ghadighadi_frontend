@@ -27,6 +27,8 @@
                     <ion-input
                       type="text"
                       formControlName="first_name"
+                      minlength="2"
+                      maxlength="20"
                     ></ion-input>
                   </ion-item>
                   <ion-text color="danger">
@@ -44,6 +46,8 @@
                     <ion-input
                       type="text"
                       formControlName="last_name"
+                      minlength="2"
+                      maxlength="20"
                     ></ion-input>
                   </ion-item>
                   <ion-text color="danger">
@@ -65,6 +69,8 @@
                       type="text"
                       formControlName="starting_address"
                       placeholder="Ain chok, Casablanca."
+                      minlength="5"
+                      maxlength="50"
                     ></ion-input>
                   </ion-item>
                   <ion-text color="danger">
@@ -82,7 +88,9 @@
                     <ion-input
                       type="text"
                       formControlName="arrival_address"
-                      placeholder="Maarif, Casablanca."
+                      placeholder="Gueliz, Marrakech."
+                      minlength="5"
+                      maxlength="50"
                     ></ion-input>
                   </ion-item>
                   <ion-text color="danger">
@@ -102,8 +110,10 @@
                     <ion-label position="stacked">Contact phone *</ion-label>
                     <ion-input
                       type="text"
+                      minlength="10"
+                      maxlength="10"
                       formControlName="contact_phone"
-                      placeholder="XX XX XX XX XX"
+                      placeholder="0611223344"
                     ></ion-input>
                   </ion-item>
                   <ion-text color="danger">
@@ -153,7 +163,9 @@
 
               <div class="flex align-items-center full-width ion-margin-top">
                 <div class="ion-margin-end">
-                  <h5 class="text-medium bold">Upload your luggage's image</h5>
+                  <h5 class="text-medium bold">
+                    Upload your luggage's image *
+                  </h5>
                   <ion-button
                     strong
                     shape="round"
