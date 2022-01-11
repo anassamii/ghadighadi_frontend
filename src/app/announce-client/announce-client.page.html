@@ -110,6 +110,7 @@
                     <ion-label position="stacked">Contact phone *</ion-label>
                     <ion-input
                       type="text"
+                      (keypress)="numberOnlyValidation($event)"
                       minlength="10"
                       maxlength="10"
                       formControlName="contact_phone"

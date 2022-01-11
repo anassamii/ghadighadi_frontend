@@ -117,6 +117,16 @@ export class AnnounceDriverPage implements OnInit {
     this.ionContent.scrollToTop();
   }
 
+  numberOnlyValidation(event: any) {
+    const pattern = /[0-9]/;
+    let inputChar = String.fromCharCode(event.charCode);
+
+    if (!pattern.test(inputChar)) {
+      // invalid character, prevent input
+      event.preventDefault();
+    }
+  }
+
   onBackButtonTouched() {
     this.ionSlides.slidePrev();
     this.ionContent.scrollToTop();
