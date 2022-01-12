@@ -26,6 +26,11 @@ const routes: Routes = [
         (m) => m.AnnounceDriverPageModule
       ),
   },
+  
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  },
 ];
 
 @NgModule({
