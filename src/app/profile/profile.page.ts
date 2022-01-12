@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { ProfileService } from '../service/profile.service';
+import { ProfileService } from '../services/profile.service';
 import { Profile } from './profil.model';
 
 @Component({

@@ -1,0 +1,28 @@
+.btn {
+    background-color: var(--ion-color-new, #008786);
+    position: relative;
+    width: 100%;
+    top: 0px;
+    
+  }
+  h1 {
+    font-family: "Montserrat", sans-serif;
+    font-family: "Poppins", sans-serif;
+  
+    font-weight: 300px;
+    text-align: center;
+    color: #000000;
+  }
+  
+  p {
+    padding: 0 40px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ion-color-step-600, #60646b);
+    text-align: center;
+  }
+  .banner {
+    height: 300px;
+    width: 100%;
+  }
+  
